@@ -1,0 +1,235 @@
+@import "../vars.css";
+
+label {
+    color: var(--dark-gray);
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    font-family: inherit;
+    border: 1px solid var(--medium-gray);
+    border-radius: 0.35rem;
+}
+
+input:focus,
+textarea:focus {
+    outline: 1px solid var(--green);
+    border: 1px solid var(--green);
+}
+
+input[type="text"].form-error,
+input[type="email"].form-error,
+textarea.form-error {
+    border: 1px solid var(--red);
+}
+
+label.requiredInput {
+    color: var(--red);
+}
+
+.formAlert {
+    color: var(--red);
+    margin-top: 0.5rem;
+}
+
+.requiredInput {
+    color: var(--red);
+}
+
+.formError {
+    display: block;
+    border: 1px solid var(--red);
+}
+
+.contactForm {
+    background-color: var(--white);
+    margin: 1rem;
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+.contactForm h1 {
+    color: var(--dark-gray);
+    margin-bottom: 1.25rem;
+}
+
+.formItem {
+    margin-bottom: 1.5rem;
+}
+
+.firstLastNameContainer {
+    display: flex;
+    gap: 1rem;
+}
+
+.firstLastNameContainer>div {
+    flex: 1;
+}
+
+.formItem:nth-child(1) {
+    display: flex;
+    gap: 1rem;
+}
+
+.formItem:nth-child(3) .radioInputs {
+    margin-top: 0.5rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.radioInputs {
+    margin-top: 0.5rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.radioOption {
+    cursor: pointer;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    outline: 1px solid var(--medium-gray);
+    border-radius: 0.35rem;
+    position: relative;
+}
+
+.radioOption input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+}
+
+.radioOption input[type="radio"]+label {
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.radioOption input[type="radio"]+label::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1rem;
+    height: 1rem;
+    border: 2px solid var(--green);
+    border-radius: 50%;
+    background-color: var(--white);
+    box-shadow: inset 0 0 0 4px var(--white);
+}
+
+.radioOption input[type="radio"]:checked+label::before {
+    background-color: var(--green);
+    box-shadow: inset 0 0 0 2px var(--green);
+}
+
+.radioOption.active {
+    background-color: var(--light-green);
+}
+
+.radioInputs label {
+    cursor: pointer;
+    width: 100%;
+}
+
+.formItem:nth-child(5) {
+    margin-bottom: 2rem;
+}
+
+.formItem:nth-child(5) div {
+    display: flex;
+    gap: 1rem;
+}
+
+.formItem:nth-child(5) input[type="checkbox"] {
+    cursor: pointer;
+    accent-color: var(--green);
+}
+
+.formItem:nth-child(5) label {
+    cursor: pointer;
+}
+
+.submitBtn {
+    cursor: pointer;
+    background-color: var(--green);
+    color: var(--white);
+    width: 100%;
+    padding: 0.75rem;
+    border: 0;
+    outline: 0;
+    border-radius: 0.25rem;
+}
+
+.submitBtn:hover {
+    background-color: var(--dark-gray);
+}
+
+.successMessage {
+    background-color: var(--dark-gray);
+    color: var(--light-green);
+    width: max-content;
+    padding: 1rem;
+    pointer-events: none;
+    opacity: 0;
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 0.35rem;
+}
+
+.successMessage.active {
+    display: block;
+    pointer-events: all;
+    animation-name: fadeOut;
+    animation-duration: 5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeOut {
+
+    0%,
+    25%,
+    50%,
+    75% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.messageHeader {
+    color: var(--white);
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+@media (max-width: 380px) {
+    .formItem:nth-child(1) {
+        flex-direction: column;
+    }
+
+    .formItem:nth-child(3) .radioInputs {
+        flex-direction: column;
+    }
+
+    textarea {
+        height: 200px;
+    }
+
+    .successMessage {
+        width: 35ch;
+        top: 5%;
+    }
+}
